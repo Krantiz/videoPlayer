@@ -11,7 +11,6 @@ import { RequestHandlrService } from './request-handlr.service';   // our custom
 })
 export class AppComponent {
   title = 'app';
-  foods: any;
   
   constructor( private RequestHandlrService: RequestHandlrService) { 
 

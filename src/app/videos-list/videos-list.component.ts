@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 import { RequestHandlrService } from '../request-handlr.service';   // our custom service, see below
+import { DataService } from '../data.service';
 
 
 const httpOptions = {
@@ -17,13 +16,21 @@ const httpOptions = {
 export class VideosListComponent implements OnInit {
 	videos: any;
 
+  	constructor(private RequestHandlrService: RequestHandlrService, private dataService:DataService) {
+  		this.RequestHandlrService.getVideosFromServer().subscribe(
+	      data => { this.videos = data},
+	      err => console.error(err),
+	      () => console.log('done loading foods')
+	    );
+  	}
+
 	ngOnInit() {
-		this.getVideos();
+
+		// this.getVideos();
 	}
 
-  	constructor(private RequestHandlrService: RequestHandlrService) {}
-
   	playThis(url) {
+  		this.dataService.setData(url);
   		alert(url);
   	}
 
