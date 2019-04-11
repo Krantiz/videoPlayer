@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-player',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoPlayerComponent implements OnInit {
 
-  constructor() { }
+  videoUrl: any;
+  Url: any;
+
+  constructor(private sanitizer:DomSanitizer){}
 
   ngOnInit() {
   }
+
+  sendData(data: any) {
+	    console.log('I am from home component');
+	    console.log(data);
+      // data = this.sanitizer.bypassSecurityTrustResourceUrl(data);
+      // this.videoUrl = this.sanitizer.bypassSecurityTrustUrl(data);
+	}
+  
 
 }

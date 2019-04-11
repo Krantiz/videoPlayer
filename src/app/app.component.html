@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="col-md-12 full-height" id="player-div">
-    <app-video-player></app-video-player>
-    <app-videos-list></app-videos-list>
+    <app-video-player #dashboard></app-video-player>
+    <app-videos-list (shareDataEvent) = "dashboard.sendData($event)"></app-videos-list>
   </div>
 </div>
