@@ -10,6 +10,7 @@ export class DataService {
     }
 
     getData():any{
+    	alert('getcalled');
         return this.data;
     }
 

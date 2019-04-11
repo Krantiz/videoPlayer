@@ -17,21 +17,16 @@ export class VideosListComponent implements OnInit {
 	videos: any;
 
   	constructor(private RequestHandlrService: RequestHandlrService, private dataService:DataService) {
-  		this.RequestHandlrService.getVideosFromServer().subscribe(
-	      data => { this.videos = data},
-	      err => console.error(err),
-	      () => console.log('done loading foods')
-	    );
+
   	}
 
 	ngOnInit() {
-
-		// this.getVideos();
+		this.getVideos();
 	}
 
   	playThis(url) {
   		this.dataService.setData(url);
-  		alert(url);
+  		// alert(url);
   	}
 
   	getVideos() {

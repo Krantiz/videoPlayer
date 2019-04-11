@@ -11,11 +11,17 @@ import { DataService } from '../data.service';
 export class VideoPlayerComponent implements OnInit {
   videoUrl: any = 'https://www.youtube.com/embed/tgbNymZ7vqY';
   data:any;
-  constructor(private sanitizer:DomSanitizer, private dataService:DataService){}
+  constructor(private sanitizer:DomSanitizer, private dataService:DataService){
+    this.videoUrl = this.dataService.getData();
+    alert(this.videoUrl + ' kranti1')
+
+  }
 
   ngOnInit() {
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
-    this.data = this.dataService.getData();
+    this.videoUrl = this.dataService.getData();
+
+    alert(this.videoUrl + ' kranti')
   }
 
 }
