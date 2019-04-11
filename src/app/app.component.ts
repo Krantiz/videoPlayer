@@ -18,14 +18,6 @@ export class AppComponent {
   }
 
 	ngOnInit() {
-	    this.getFoods();
-	  }
+	}
  
-  getFoods() {
-   this.RequestHandlrService.getFoods().subscribe(
-      data => { this.foods = data},
-      err => console.error(err),
-      () => console.log('done loading foods')
-    );
-  }
 }
