@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -16,7 +16,6 @@ const httpOptions = {
 })
 export class VideosListComponent implements OnInit {
 	videos: any;
-	 @Output() shareDataEvent = new EventEmitter();
 
 	ngOnInit() {
 		this.getVideos();
@@ -25,7 +24,7 @@ export class VideosListComponent implements OnInit {
   	constructor(private RequestHandlrService: RequestHandlrService) {}
 
   	playThis(url) {
-  		this.shareDataEvent.emit(url);
+  		alert(url);
   	}
 
   	getVideos() {
