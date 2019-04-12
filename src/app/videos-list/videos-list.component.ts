@@ -28,12 +28,15 @@ export class VideosListComponent implements OnInit {
   	}
 
   	getVideos() {
-	   this.RequestHandlrService.getVideosFromServer().subscribe(
-	      data => { this.videos = data; this.loading = false;},
-	      err => console.error(err),
-	      () => console.log('done loading foods')
+	   	this.RequestHandlrService.getVideosFromServer().subscribe(
+	      	data => { 
+	      		this.videos = data; 
+	      		setTimeout(() => this.loading = false, 2000);
+	      	},
+	      	err => console.error(err),
+	      	() => console.log('done loading foods')
 	    );
-	  }
+	}
  
 	
 }

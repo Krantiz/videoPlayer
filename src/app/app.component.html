@@ -1,13 +1,5 @@
 <div class="container-fluid">
-
   <div class="col-md-12 full-height" id="player-div">
-  	<!-- <div class="mobile-menu">
-  		<button data-toggle="collapse" data-target="#demo">Collapsible</button>
-
-		<div id="demo" class="collapse">
-		Lorem ipsum dolor text....
-		</div>
-  	</div> -->
     <app-video-player #playThisVideo></app-video-player>
     <app-videos-list (trackChanged)="playThisVideo.trackChanged($event)"></app-videos-list>
   </div>

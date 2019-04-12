@@ -10,13 +10,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class VideoPlayerComponent implements OnInit {
   videoUrl: any;
   data:any;
-  constructor(private sanitizer:DomSanitizer){
-  }
+  constructor(private sanitizer:DomSanitizer){ }
 
   ngOnInit() {
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/6ZfuNTqbHE8');
   }
 
+  // Listening click on video list
   trackChanged(track){
     console.log(track.value);
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(track.value);
