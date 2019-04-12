@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RequestHandlrService } from '../request-handlr.service';   // our custom service, see below
-import { DataService } from '../data.service';
 
 
 const httpOptions = {
@@ -15,18 +14,15 @@ const httpOptions = {
 })
 export class VideosListComponent implements OnInit {
 	videos: any;
-
-  	constructor(private RequestHandlrService: RequestHandlrService, private dataService:DataService) {
-
-  	}
+	@Output() trackChanged = new EventEmitter<any>();
+  	constructor(private RequestHandlrService: RequestHandlrService) { }
 
 	ngOnInit() {
 		this.getVideos();
 	}
 
   	playThis(url) {
-  		this.dataService.setData(url);
-  		// alert(url);
+  		this.trackChanged.emit({value: url});
   	}
 
   	getVideos() {

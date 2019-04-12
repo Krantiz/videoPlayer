@@ -1,6 +1,5 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import { DataService } from '../data.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -9,19 +8,19 @@ import { DataService } from '../data.service';
   styleUrls: ['./video-player.component.css']
 })
 export class VideoPlayerComponent implements OnInit {
-  videoUrl: any = 'https://www.youtube.com/embed/tgbNymZ7vqY';
+  videoUrl: any;
   data:any;
-  constructor(private sanitizer:DomSanitizer, private dataService:DataService){
-    this.videoUrl = this.dataService.getData();
-    alert(this.videoUrl + ' kranti1')
-
+  constructor(private sanitizer:DomSanitizer){
   }
 
   ngOnInit() {
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
-    this.videoUrl = this.dataService.getData();
-
-    alert(this.videoUrl + ' kranti')
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/6ZfuNTqbHE8');
   }
+
+  trackChanged(track){
+    console.log(track.value);
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(track.value);
+  }
+
 
 }
