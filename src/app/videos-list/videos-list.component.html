@@ -1,7 +1,8 @@
 <div class="col-md-2 content">
-  <div class="video-items hidden-sm-down"*ngFor="let video of videos">
+  <app-loader *ngIf="loading"></app-loader>
+  <div class="video-items hidden-sm-down" *ngFor="let video of videos">
     <a (click)="playThis(video.trailer)">
-      <div class="item"> 
+      <div class="item">
         <video controls poster="{{ video.poster }}" style="width: 100%; height: 100%;">
         </video>
       </div>

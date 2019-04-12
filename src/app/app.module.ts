@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { VideosListComponent } from './videos-list/videos-list.component';
 import { AppInterceptor } from './app.interceptor';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     VideoPlayerComponent,
-    VideosListComponent
+    VideosListComponent,
+    LoaderComponent
   ],
   imports: [
   	BrowserModule,

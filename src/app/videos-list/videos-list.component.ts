@@ -14,10 +14,12 @@ const httpOptions = {
 })
 export class VideosListComponent implements OnInit {
 	videos: any;
+	loading: boolean = false;
 	@Output() trackChanged = new EventEmitter<any>();
   	constructor(private RequestHandlrService: RequestHandlrService) { }
 
 	ngOnInit() {
+    	this.loading = true;
 		this.getVideos();
 	}
 
@@ -27,7 +29,7 @@ export class VideosListComponent implements OnInit {
 
   	getVideos() {
 	   this.RequestHandlrService.getVideosFromServer().subscribe(
-	      data => { this.videos = data},
+	      data => { this.videos = data; this.loading = false;},
 	      err => console.error(err),
 	      () => console.log('done loading foods')
 	    );
