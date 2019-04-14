@@ -1,7 +1,7 @@
 <div class="col-md-2 content">
   <app-loader *ngIf="loading"></app-loader>
   <div class="video-items hidden-sm-down" *ngFor="let video of videos">
-    <a (click)="playThis(video.trailer)" data-toggle="tooltip" title="{{ video.name }} - {{ video.year }}">
+    <a (click)="playThis(video.trailer)" data-toggle="tooltip" title="{{ video.name | customUppercasePipe }}">
       <div class="item">
         <img src="{{ video.poster }}">
       </div>

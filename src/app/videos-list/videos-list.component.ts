@@ -31,7 +31,7 @@ export class VideosListComponent implements OnInit {
 	   	this.RequestHandlrService.getVideosFromServer().subscribe(
 	      	data => { 
 	      		this.videos = data; 
-	      		setTimeout(() => this.loading = false, 2000);
+	      		setTimeout(() => this.loading = false, 5000);
 	      	},
 	      	err => {
 	      		alert('Error in fetching Data!'); 
